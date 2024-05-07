@@ -4,7 +4,7 @@ HEIGHT = 3
 WIDTH = 3
 
 
-def Empty_State():  #defining empty game state
+def empty_state():  #defining empty game state
     state = list()
     for _ in range(HEIGHT): 
         row_list = list()
@@ -14,10 +14,28 @@ def Empty_State():  #defining empty game state
 
     return state
 
-def main():
-    print("Hello World")
+def draw_line():
+    line = ""
+    for i in range(WIDTH*2+1): 
+        line += "-"
+    print(line)
+        
+def draw_row(GameState:list[str]):
+    row = "|"
+    for i in GameState:
+        row += (i + "|")
+    print(row)
+           
+def draw_board(GameState:list[list[str]]):
+    for i in GameState:
+        draw_line()
+        draw_row(i)
+    draw_line()
     
-    print (GameState)
+
+def main():
+    GameState = empty_state()
+    draw_board(GameState)
 
 if __name__ == "__main__":
     main()  
